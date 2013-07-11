@@ -1,4 +1,5 @@
-chef-nodejs
+
+Description
 ===========
 
-A cookbook to install nodejs and npm on ubuntu
+A cookbook to install nodejs on ubuntu using the ppa.
