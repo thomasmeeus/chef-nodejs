@@ -1,9 +1,7 @@
 action :install do
-  pkg_id = new_resource.name
-  pkg_id += "@#{new_resource.version}" if new_resource.version
   execute "install NPM package #{new_resource.name}" do
-    command "npm -g install #{pkg_id}"
-    not_if "npm -g ls | grep '^[├└]─[─┬] #{pkg_id}'"
+    command "npm -g install #{new_resource.name}"
+    not_if "npm -g ls | grep '^[├└]─[─┬] #{new_resource.name}'"
   end
 end
 
@@ -28,11 +26,9 @@ action :install_from_json do
 end
 
 action :uninstall do
-  pkg_id = new_resource.name
-  pkg_id += "@#{new_resource.version}" if new_resource.version
   execute "uninstall NPM package #{new_resource.name}" do
-    command "npm -g uninstall #{pkg_id}"
-    only_if "npm -g ls | grep '^[├└]─[─┬] #{pkg_id}'"
+    command "npm -g uninstall #{new_resource.name}"
+    only_if "npm -g ls | grep '^[├└]─[─┬] #{new_resource.name}'"
   end
 end
 
