@@ -21,7 +21,7 @@
 
 include_recipe "apt"
 
-apt_repository "node.js" do
+apt_repository "nodejs" do
   uri "http://ppa.launchpad.net/chris-lea/node.js/ubuntu"
   distribution node['lsb']['codename']
   components ["main"]
